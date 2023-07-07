@@ -1,0 +1,84 @@
+---
+title: "data_exploration"
+author: "Charles Hendrickson"
+date: "2023-07-06"
+output: html_document
+---
+
+Load packages
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(here)
+library(naniar)
+library(forcats)
+```
+
+Read in data
+```{r}
+nanomaterial_data <- read_csv(here("data/edi_data.csv"))
+```
+
+Explore missing data
+```{r}
+#Visualize number of missing values in the data frame
+gg_miss_var(nanomaterial_data)
+
+#Explore missing data along time
+gg_miss_fct(nanomaterial_data, year)
+
+```
+
+```{r}
+#Create ordered bar chart with forcats package
+ggplot(data = nanomaterial_data, aes(y = fct_infreq(NM))) +
+geom_bar() +
+  labs(title = "Published Scientific Papers on Engineered Nanomaterials",
+       x = "Published Scientific Papers",
+       y = "Nanomaterial") +
+  theme_classic()
+       
+```
+
+
+```{r}
+ggplot(data = nanomaterial_data, aes(y = trophiclevel)) +
+  geom_bar()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
