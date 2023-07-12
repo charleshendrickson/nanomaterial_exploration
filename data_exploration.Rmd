@@ -44,7 +44,11 @@ geom_bar() +
 
 ```{r}
 ggplot(data = nanomaterial_data, aes(y = trophiclevel)) +
-  geom_bar()
+  geom_bar() +
+  theme_classic() +
+  labs(title = "Trophic Level of Study Organism in Nanomaterial Research",
+       y = "Trophic Level of Study Organism",
+       x = "Nanomaterial Research Papers that Include Study Organism")
 ```
 
 
